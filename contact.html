@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Lamborghini</title>
+   <title>Tido Motors</title>
+    <!--Custom Css-->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!--Google fonts-->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+
+     <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+
+    <!--Bootstrap link-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <style>
+        :root {
+            --primary-red: #d50000;
+            --dark-bg: #0a0a0a;
+            --darker-bg: #050505;
+            --text-light: #ffffff;
+            --text-muted: #aaaaaa;
+        }
+
+        body {
+            font-family: "Quicksand", sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+       
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+         /* Contact Form */
+        .form-container {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            color: var(--text-light);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-red);
+            box-shadow: 0 0 0 3px rgba(213, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .btn-submit {
+            background: var(--primary-red);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: block;
+            margin: 40px auto 0;
+        }
+
+        .btn-submit:hover {
+            background: #b71c1c;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(213, 0, 0, 0.3);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            margin-top: 100px;
+        }
+
+        .accordion {
+            margin-top: 50px;
+        }
+
+        .accordion-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        .accordion-header {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            background: rgba(213, 0, 0, 0.1);
+        }
+
+        .accordion-header::after {
+            content: '+';
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-header.active::after {
+            content: '-';
+            color: var(--primary-red);
+        }
+
+        .accordion-content {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            color: #ffffff;
+        }
+
+        .accordion-content.show {
+            padding: 20px;
+            max-height: 500px;
+        }
+     
+    </style>
+</head>
+<body>
+          
+    <!--Navigation bar-->
+      <nav class="navbar navbar-dark bg-black fixed-top p-4" >
+        <div class="container-fluid">
+            
+            <div class="navbar-brand invisible">Tido Motors</div>
+            
+            <!-- Centered Logo -->
+            <div class="navbar-brand mx-auto position-absolute start-50 translate-middle-x">
+                <img src="img/logo.png" alt="Logo" class="d-inline-block align-top">
+            </div>
+            
+            <!-- Toggle button remains on the right -->
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+                <!-- Offcanvas content remains the same -->
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Tido Motors</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="About.html">Discover</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                See Beyond
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="shop.html">Shop</a></li>
+                                <li><a class="dropdown-item" href="events.html">Events</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="contact.html">Contact Us</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+   <!--End of Nav bar-->
+    <!-- Hero Section -->
+    <section class="contact-hero">
+        <div class="Tido-content">
+            <h1>CONTACT US</h1>
+            <p>Our client advisors are available to answer your questions and help you configure your dream Lamborghini</p>
+        </div>
+    </section>
+
+    <!-- Contact Methods -->
+    <div class="contact-container">
+        <h2 class="section-title">HOW CAN WE HELP?</h2>
+        
+        <div class="contact-grid">
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-phone-alt"></i>
+                </div>
+                <h3>BY PHONE</h3>
+                <div class="contact-info">
+                    <p>Speak directly with a Lamborghini consultant</p>
+                    <a href="tel:+18005226642">+267 78 678 567</a>
+                    <p>Monday - Friday: 8:00 AM - 8:00 PM CAT</p>
+                    <p>Saturday: 9:00 AM - 5:00 PM CAT</p>
+                </div>
+            </div>
+            
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h3>BY EMAIL</h3>
+                <div class="contact-info">
+                    <p>Send us your inquiries and we'll respond within 24 hours</p>
+                    <a href="mailto:customer.care@lamborghini.com">customer.care@lamborghini.com</a>
+                    <a href="mailto:press@lamborghini.com">press@lamborghini.com</a>
+                    <a href="mailto:dealers@lamborghini.com">Tido@lamborghini.com</a>
+                </div>
+            </div>
+            
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <h3>IN PERSON</h3>
+                <div class="contact-info">
+                    <p>Visit one of our authorized dealerships worldwide</p>
+                    <p>Lamborghini Headquarters:</p>
+                    <address>
+                        Via Modena, 12<br>
+                        40019 Sant'Agata Bolognese<br>
+                        Bologna, Italy
+                    </address>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Contact Form -->
+        <h2 class="section-title">SEND US A MESSAGE</h2>
+        
+        <div class="form-container">
+            <form id="contactForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name*</label>
+                        <input type="text" id="firstName" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name*</label>
+                        <input type="text" id="lastName" class="form-control" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email Address*</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" class="form-control">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Subject*</label>
+                    <select id="subject" class="form-control" required>
+                        <option value="">Select a subject</option>
+                        <option value="sales">Vehicle Sales Inquiry</option>
+                        <option value="service">Service Appointment</option>
+                        <option value="testdrive">Test Drive Request</option>
+                        <option value="parts">Parts Inquiry</option>
+                        <option value="general">General Inquiry</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Your Message*</label>
+                    <textarea id="message" class="form-control" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" required> I agree to the <a href="#" style="color: var(--primary-red);">privacy policy</a>*
+                    </label>
+                </div>
+                
+                <button type="submit" class="btn-submit">SEND MESSAGE</button>
+            </form>
+        </div>
+        
+        <!-- Dealership Map -->
+        <div class="map-container">
+            <h2 class="section-title">FIND A DEALERSHIP</h2>
+            <div class="map-wrapper">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2839.318182778269!2d11.12422331553472!3d44.65889197909972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477fc3a1c7b1f8a5%3A0x4a1eb119b1a3e7a9!2sAutomobili%20Lamborghini%20S.p.A.!5e0!3m2!1sen!2sus!4v1623256789014!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+        
+        <!-- FAQ Section -->
+        <div class="faq-section">
+            <h2 class="section-title">FREQUENTLY ASKED QUESTIONS</h2>
+            
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        How can I schedule a test drive?
+                    </div>
+                    <div class="accordion-content">
+                        <p>You can schedule a test drive by contacting your nearest authorized Lamborghini dealership directly through our dealer locator, or by filling out the contact form on this page and selecting "Test Drive Request" as your subject. Our client advisors will coordinate with your local dealer to arrange your personalized driving experience.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        What is the warranty coverage for a new Lamborghini?
+                    </div>
+                    <div class="accordion-content">
+                        <p>All new Lamborghini vehicles come with a 3-year unlimited mileage warranty. Additionally, we offer a 12-year anti-corrosion warranty and 3 years of roadside assistance. For hybrid models, the high-voltage battery is covered for 8 years or 100,000 miles, whichever comes first.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        How long does it take to receive a custom-ordered Lamborghini?
+                    </div>
+                    <div class="accordion-content">
+                        <p>The production time for a custom-configured Lamborghini typically ranges between 6-12 months from the time your order is confirmed, depending on the model and current production capacity. Limited edition models may have different timelines. Your dealer will provide you with regular updates throughout the production process.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        What financing options are available?
+                    </div>
+                    <div class="accordion-content">
+                        <p>Lamborghini Financial Services offers a range of financing solutions including traditional financing, leasing programs, and balloon payment plans. Our specialists can tailor a financial package to your specific needs. Contact your authorized dealer or our financial services department for personalized rate quotes and terms.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        How often does my Lamborghini need servicing?
+                    </div>
+                    <div class="accordion-content">
+                        <p>Lamborghini recommends annual maintenance or every 9,000 miles (15,000 km), whichever comes first. For vehicles driven in extreme conditions or track use, more frequent servicing may be required. All maintenance should be performed by authorized Lamborghini service centers to maintain your warranty coverage.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+     <footer class="luxury-footer">
+        <div class="footer-wave"></div>
+        
+        <div class="container py-5">
+            <div class="row g-5">
+                <!-- Company Info -->
+                <div class="col-lg-4">
+                    <div class="footer-brand mb-4">
+                        <img src="img/logo.png" alt="Lamborghini Logo" height="40">
+                        <span class="ms-2 brand-name">TIDO MOTORS</span>
+                    </div>
+                    <p class="footer-text">The House of the Raging Bull. Born in 1963, Automobili Lamborghini creates the world's most coveted super sports cars.</p>
+                    <div class="social-icons mt-4">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="footer-heading">Models</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Huracán</a></li>
+                        <li><a href="#">Aventador</a></li>
+                        <li><a href="#">Urus</a></li>
+                        <li><a href="#">Limited Series</a></li>
+                        <li><a href="#">Concept Cars</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company Links -->
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="footer-heading">Company</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Dealers</a></li>
+                        <li><a href="#">Museum</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+
+                <!-- Experience Links -->
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="footer-heading">Experience</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Driving Academy</a></li>
+                        <li><a href="#">Track Days</a></li>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="#">Lamborghini Club</a></li>
+                        <li><a href="#">Configurator</a></li>
+                    </ul>
+                </div>
+
+                <!-- Feedback Form -->
+                <div class="col-lg-2">
+                    <h5 class="footer-heading">Contact Us</h5>
+                    <form class="footer-form">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Email Address" required>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="3" placeholder="Your Message"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-danger w-100">Send Message</button>
+                    </form>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+
+            <!-- Copyright & Legal -->
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="copyright-text">© 2025 Vincent All rights reserved.</p>
+                </div>
+                <div class="col-md-6">
+                    <ul class="legal-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Legal</a></li>
+                        <li><a href="#">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+        
+
+<!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Accordion functionality
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+            
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    const content = this.nextElementSibling;
+                    content.classList.toggle('show');
+                });
+            });
+            
+            // Form submission
+            const contactForm = document.getElementById('contactForm');
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Form validation
+                const firstName = document.getElementById('firstName').value;
+                const lastName = document.getElementById('lastName').value;
+                const email = document.getElementById('email').value;
+                const subject = document.getElementById('subject').value;
+                const message = document.getElementById('message').value;
+                
+                if (!firstName || !lastName || !email || !subject || !message) {
+                    alert('Please fill in all required fields');
+                    return;
+                }
+                
+                // Simulate form submission
+                alert('Thank you for your message! A Lamborghini consultant will contact you shortly.');
+                contactForm.reset();
+                
+                // In a real implementation, you would send the form data to a server here
+                // Example: fetch('/api/contact', { method: 'POST', body: new FormData(contactForm) })
+            });
+            
+            // Animate elements when they come into view
+            const animateOnScroll = function() {
+                const elements = document.querySelectorAll('.contact-card, .form-container, .map-container, .faq-section');
+                
+                elements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (elementPosition < windowHeight - 100) {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }
+                });
+            };
+            
+            // Set initial state for animated elements
+            document.querySelectorAll('.contact-card, .form-container, .map-container, .faq-section').forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(30px)';
+                element.style.transition = 'all 0.6s ease';
+            });
+            
+            window.addEventListener('scroll', animateOnScroll);
+            animateOnScroll(); // Run once on load
+        });
+    </script>
+
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+</body>
+</html>
